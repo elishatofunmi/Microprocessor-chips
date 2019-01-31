@@ -1,0 +1,10 @@
+C:/Modeltech_pe_edu_10.4a/vhdl_src/mod_8_counter.vhd {1 {vcom -work work -2002 -explicit -stats=none {C:\Modeltech_pe_edu_10.4a\vhdl_src\mod_8_counter.vhd}
+Model Technology ModelSim ALTERA vcom 10.4b Compiler 2015.05 May 27 2015
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity tb
+-- Compiling architecture a of tb
+-- Loading entity JKFlipFlopGate
+
+} {} {}}
