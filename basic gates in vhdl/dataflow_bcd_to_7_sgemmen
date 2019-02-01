@@ -1,0 +1,16 @@
+LIBRARY IEEE;
+USE IEEE.STD_LOGIC.1164.ALL;
+ENTITY bcd IS PORT(
+   i0, i1, i2,i3:IN STD_LOGIC;
+   a,b,c,d,e,f,g: OUT STD_LOGIC);
+END bcd;
+ARCHITECTURE DATAFLOW OF bcd IS
+BEGIN
+    a <= i3 OR i2 OR (i2 XNOR i0);
+    b <= (NOT i2) OR NOT (i1 XOR i0);
+    c <= i2 OR (NOT il) OR i0;
+    d <= (i1 AND NOT i0) OR (NOT i2 AND NOT i0) OR (NOT i2 AND i1) OR (i2 AND NOT i1 AND i0);
+    e <= (i1 AND NOT io) OR (NOT i2 AND NOT i0);
+    f <=  i3 OR (i2 AND NOT i1) OR (i2 AND NOT i0) OR (NOT i1 AND NOT i0);
+    g <= i3 OR (i2 XOR i1) OR (i1 AND NOT i0);
+END Dataflow;

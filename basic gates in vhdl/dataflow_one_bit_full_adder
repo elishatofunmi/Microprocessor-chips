@@ -1,0 +1,13 @@
+LIBRARY IEEE;
+USE IEEE.STD_LOGIC_1164.ALL;
+
+ENTITY fa IS PORT(
+   ci, xi, yi: IN STD_LOGIC;
+   ci1, si: OUT STD_LOGIC);
+END ENTITY fa;
+
+ARCHITECTURE DATAFLOW OF fa IS
+BEGIN
+    ci1 <= (xi AND yi) OR (ci AND (xi XOR yi));
+    si <= xi XOR yi XOR ci;
+END Dataflow;

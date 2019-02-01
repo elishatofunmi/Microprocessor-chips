@@ -1,0 +1,23 @@
+LIBRARY IEEE;
+USE IEEE.STD_LOGIC_1164.ALL;
+
+ENTITY Adder4 IS PORT(
+    A, B: IN STD_LOGIC_VECTOR(3 DOWNTO 0);
+    Cout: OUT STD_LOGIC;
+    SUM: OUT STD_LOGIC_VECTOR(3 DOWNTO 0));
+END Adder4;
+
+ARCHITECTURE Structural OF Adder4 IS
+    COMPONENT FA PORT(
+        ci,xi, yi: IN STD_LOGIC;
+	co, si: OUT STD_LOGIC);
+    END COMPONENT;
+
+    SIGNAL Carryv: STD_LOGIC_VECTOR(4 DOWNTO 0);
+BEGIN
+    Carryv(0) <= '0';
+    Adder: FOR k IN 3 DOWNTO 0 GENERATE
+        FullAdder: FA PORT MAP(Carryv(k), A(k), B(k), Carryv(k+1), Sum(k));
+    END GENERATE Adder;
+    Cout <= Carryv(4);
+END Structural;

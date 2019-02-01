@@ -1,0 +1,36 @@
+-- A 4-to-1 8-bit multiplexer
+LIBRARY IEEE;
+USE IEEE.STD_LOGIC_1164.ALL;
+
+ENTITY Multiplexer IS
+   PORT(S: IN STD_LOGIC_VECTOR(1 DOWNTO 0);  -- select lines
+	D0, D1, D2, D3: IN STD_LOGIC_VECTOR(7 DOWNTO 0);   --data bus input
+	Y: OUT STD_LOGIC_VECTOR(7 DOWNTO 0));   -- data bus output
+END Multiplexer;
+
+-- Behavioural level code
+ARCHITECTURE Behavioural OF Multiplexer IS
+BEGIN
+    PROCESS (S,D0, D1,D2,D3)
+    BEGIN
+      CASE S IS
+	WHEN "00" => Y <= D0;
+	WHEN "01" => Y <= D1;
+	WHEN "10" => Y <= D2;
+	WHEN "11" => Y <= D3;
+	WHEN OTHERS => Y <= (OTHERS => 'U');
+      END CASE;
+     END PROCESS;
+END Behavioural;
+
+
+-- Dataflow level code
+ARCHITECTURE Dataflow OF Multiplexer IS
+BEGIN
+    WITH S SELECT Y <=
+	D0 WHEN "00",
+	D1 WHEN "01",
+	D2 WHEN "10",
+	D3 WHEN "11",
+	(0THERS => 'U')WHEN OTHERS;   --8-bit vector of U
+END Dataflow;

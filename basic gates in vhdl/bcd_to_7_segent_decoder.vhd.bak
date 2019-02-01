@@ -1,4 +1,3 @@
-
 ------- NOT gate -----------------
 LIBRARY IEEE;
 USE IEEE.STD_LOGIC_1164.ALL;
@@ -148,6 +147,4 @@ BEGIN
     U18: and2gate PORT MAP(ip1, ip0, f3);
     U19: or4gate PORT MAP(i3, f1,f2, f3, f);
     U20: xor2gate PORT MAP(i2, i1, g1);
-    U21: and2gate PORT MAP(i1, ip0, g2);
-    U22: or3gate PORT MAP(i3, g1, g2, g);
-END Structural;
+    U21

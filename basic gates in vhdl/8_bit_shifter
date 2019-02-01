@@ -1,0 +1,26 @@
+LIBRARY IEEE;
+USE IEEE.STD_LOGIC_1164.ALL;
+USE IEEE.STD_LOGIC_UNSIGNED.ALL;
+
+ENTITY shifter IS PORT(
+   S: IN STD_LOGIC_VECTOR(1 DOWNTO 0); --- select for operations 
+   input: IN STD_LOGIC_VECTOR(7 DOWNTO 0); -- input
+   output: OUT STD_LOGIC_VECTOR(7 DOWNTO 0); --output
+END shifter;
+
+ARCHITECTURE Behaviour OF shifter IS
+BEGIN
+   PROCESS(S, input)
+   BEGIN
+	CASE S IS
+	WHEN "00" => -- pass through
+	  output <= input;
+	WHEN "01" =>  -- shift left with 0
+	  output <= input(6 downto 0) & '0';
+	WHEN "10" => -- shift right with 0
+	  output <= '0' & input(7 downto 1);
+	WHEN OTHERS => -- rotate right
+	  output <= input(0) & input(7 DOWNTO 1);
+	END CASE;
+    END PROCESS;
+END Behavior;
