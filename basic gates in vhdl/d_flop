@@ -1,0 +1,19 @@
+LIBRARY IEEE;
+USE IEEE.STD_LOGIC_1164.ALL;
+
+ENTITY no_memeory_element IS PORT(
+    D, Enable: IN STD_LOGIC;
+    Q: OUT STD_LOGIC);
+END no_memory_element;
+
+ARCHITECTURE Behavior OF no_memory_element IS
+BEGIN
+    PROCESS(D, Enable)
+    BEGIN
+	IF Enable = '1' THEN
+	    Q <= D;
+	ELSE
+	Q <= D;
+        END IF;
+    END PROCESS;
+END Behavior;
